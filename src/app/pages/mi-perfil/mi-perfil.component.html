@@ -1,0 +1,74 @@
+<div [ngClass]="{'container': statusPantalla <= 10}">
+
+    <div class="card shadow mb-5 bg-body rounded">
+        <div class="card-header text-uppercase">Mi Perfil</div>
+        <span class="lstick"></span>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="container">
+                        <div class="center">
+                            <label class="user-picture pointer">
+                            <span>{{user.nombre.charAt(0) + user.apellidoPaterno.charAt(0)}}</span>
+                          </label>
+                        </div>
+                        <hr>
+                        <p class="center">Nombre: {{user.nombre}} {{ user.apellidoPaterno}} {{ user.apellidoMaterno }}</p>
+                        <p class="center">Usuario: {{user.usuario}}</p>
+                        <p class="center">Telefono: {{user.telefono}}</p>
+                        <p class="center">Correo: {{user.correo}}</p>
+                        <p class="center">Rol: {{user.rol}}</p>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <h4 class="text-center mt-5">Cambio de Contraseña</h4>
+                    <hr>
+                    <form [formGroup]="formContrasena" (ngSubmit)="updatePassword()">
+                        <div class="row">
+                            <div class="col-12">
+                                <div class="mb-3">
+                                    <label for="current-password" class="form-label">Contraseña Actual</label>
+                                    <input type="password" class="form-control" id="current-password" name="current-password" autocomplete="false" formControlName="contrasenaActual" [ngClass]="submitted && formContrasena.controls['contrasenaActual'].errors ? 'is-invalid' : null">
+                                    <div class="text-danger" *ngIf="formContrasena.invalid && submitted">
+                                        <div *ngIf="formContrasena.get('contrasenaActual')?.hasError('required')">
+                                            El campo es requerido
+                                        </div>
+                                    </div>
+                                    <div class="text-danger" *ngIf="!validPswAct && formContrasena.get('contrasenaActual').value?.length > 0">
+                                      Contraseña invalida...
+                                    </div>
+                                    <div class="text-success" *ngIf="validPswAct && formContrasena.get('contrasenaActual').value?.length > 0">
+                                      Contraseña valida...
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 col-md-6">
+                                <div class="mb-3">
+                                    <label for="new-password" class="form-label">Nueva Contraseña</label>
+                                    <input type="password" class="form-control" id="new-password" name="new-password" autocomplete="false" formControlName="password" [ngClass]="submitted && formContrasena.controls['password'].errors ? 'is-invalid' : null">
+                                    <div class="text-danger" *ngIf="formContrasena.invalid && submitted">
+                                        <div *ngIf="formContrasena.get('password')?.hasError('required')">
+                                            El campo es requerido
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-6">
+                                <div class="mb-3">
+                                    <label for="repetir-password" class="form-label">Repetir Contraseña Nueva</label>
+                                    <input type="password" class="form-control" id="repetir-password" name="repetir-password" autocomplete="false" formControlName="repetirPassword">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="d-grid gap-2 col-6 mx-auto">
+                            <button class="btn btn-primary" type="submit" [disabled]="formContrasena.status == 'INVALID'">Actualizar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

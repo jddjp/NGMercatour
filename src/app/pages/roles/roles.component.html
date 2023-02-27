@@ -1,0 +1,56 @@
+<div [ngClass]="{'container': statusPantalla <= 10}">
+
+    <div class="card shadow mb-5 bg-body rounded">
+        <div class="card-header text-uppercase">Roles</div>
+        <span class="lstick"></span>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-12 col-md-3">
+                    <h4>Roles</h4>
+                    <hr>
+                    <div class="itemAdd" style="text-align: center;" (click)="openModalAdd()"><i class="fa-solid fa-plus"></i></div>
+                    <div *ngFor="let rol of listRoles" style="margin-top: 1em;">
+                        <div class="itemRol" [ngClass]="{'itemAdd': selectedRol?.descripcion == rol.descripcion }" (click)="cargarVistasRol(rol)">
+                            <i class="fa-solid fa-pen" (click)="editRol(rol)"></i>
+                            <i class="fa-solid fa-trash ml" (click)="deleteRol(rol)"></i>
+                            <label class="ml-2">{{rol.descripcion}}</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md-9">
+                    <h4>Vistas Rol</h4>
+                    <hr>
+                    <app-item-empty *ngIf="!selectedRol && !loading"></app-item-empty>
+                    <app-loading *ngIf="selectedRol && selectedRol.descripcion != '' && loading"></app-loading>
+                    <div *ngIf="selectedRol && selectedRol.descripcion != '' && !loading">
+                        <p-dropdown class="p-background" [options]="listVistasDisponibles" [(ngModel)]="selectedVista" optionLabel="nombre" [style]="{'width': '100%'}" placeholder="Selecciona una vista" (onChange)="openConfirmacion()"></p-dropdown>
+                        <hr>
+                        <p-table class="p-background" [columns]="cols" [value]="listVistasRol" [paginator]="true" [rows]="rows" selectionMode="single" [(selection)]="selectedViewRol" [showCurrentPageReport]="true" responsiveLayout="scroll" currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} elementos"
+                            styleClass="p-datatable-striped">
+                            <ng-template pTemplate="header" let-columns>
+                                <tr>
+                                    <th style="width: 2em;">Acciones</th>
+                                    <th *ngFor="let col of columns">
+                                        {{col.header}}
+                                    </th>
+                                </tr>
+                            </ng-template>
+                            <ng-template pTemplate="body" let-rowData let-columns="columns">
+                                <tr [pSelectableRow]="rowData">
+                                    <td style="width: 2em;">
+                                        <button class="btn btn-primary" type="submit" (click)="deleteVistaRol(rowData)"><i class="fa-solid fa-trash"></i></button>
+                                    </td>
+                                    <td *ngFor="let col of columns">
+                                        {{rowData[col.field]}}
+                                    </td>
+                                </tr>
+                            </ng-template>
+                        </p-table>
+                    </div>
+                    <app-add-rol [_accion]="accion" [(_editRol)]="selectedRolDialog" (saveRol)="resetInfo()" *ngIf="accion != ''"></app-add-rol>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

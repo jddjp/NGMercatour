@@ -1,0 +1,286 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Potta+One&display=swap');
+
+/* ROOT VARIABLES */
+
+:root {
+    --color-primary: #7380ec;
+    --color-danger: #ff7782;
+    --color-success: #41f1b6;
+    --color-warning: #ffbb55;
+    --color-white: #fff;
+    --color-info-dark: #7d8da1;
+    --color-info-light: #dce1eb;
+    --color-dark: #363949;
+    --color-light: rgba(132, 139, 200, 0.18);
+    --color-primary-variant: #111e88;
+    --color-dark-variant: #677483;
+    --color-background: #f6f6f9;
+    --card-border-radius: 2rem;
+    --border-radius-1: 0.4rem;
+    --border-radius-2: 0.8rem;
+    --border-radius-3: 1.2rem;
+    --card-padding: 1.8rem;
+    --padding-1: 1.2rem;
+    --box-shadow: 0 2rem 3rem var(--color-light);
+}
+
+
+/* =================== DARK THEME VARIABLES ================= */
+
+.dark-theme-variables {
+    --color-background: #181a1e;
+    --color-white: #202528;
+    --color-dark: #edeffd;
+    --color-dark-variant: #a3bdcc;
+    --color-light: rgba(0, 0, 0, 0.4);
+    --box-shadow: 0 2rem 3rem var(--color-light);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+hr {
+    color: var(--color-dark);
+    border-color: var(--color-dark);
+}
+
+body {
+    min-height: 100vh;
+    background: var(--color-background);
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.card {
+    height: calc(100vh - 89px);
+    padding-top: 5px;
+    /* overflow-y: scroll; */
+}
+
+
+/* TABLET */
+
+@media screen and (max-width: 1200px) {
+    .card {
+        height: auto !important;
+    }
+}
+
+
+/* CELULAR */
+
+@media only screen and (max-width: 768px) {
+    .card {
+        height: auto;
+    }
+}
+
+
+/* CHANGE COLOR SCROLLBAR */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 8px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
+    background: var(--color-primary);
+}
+
+
+/* FIN CHANGE COLOR SCROLLBAR */
+
+
+/* THEME CARD PAGES */
+
+.lstick {
+    width: .3em;
+    height: 3em;
+    background-color: var(--color-primary);
+    margin-top: -3em;
+}
+
+.card {
+    background: var(--color-white) !important;
+    color: var(--color-dark) !important;
+}
+
+
+/* FIN THEME CARD PAGES */
+
+
+/* THEME SWEETALERT */
+
+.swal2-container.swal2-center>.swal2-popup {
+    background: var(--color-white) !important;
+    color: var(--color-dark) !important;
+}
+
+
+/* FIN THEME SWEETALERT */
+
+
+/* THEME LOADING */
+
+.rotate {
+    animation: rotation 2s infinite linear;
+}
+
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(359deg);
+    }
+}
+
+
+/* FIN THEME LOADING */
+
+
+/* CHANGE COLOR INPUT */
+
+.p-inputtext {
+    background: var(--color-white) !important;
+    color: var(--color-dark) !important;
+}
+
+.p-toolbar {
+    background: var(--color-white) !important;
+    color: var(--color-dark) !important;
+}
+
+
+/* FIN CHANGE COLOR INPUT */
+
+
+/* CHANGE COLOR DIALOG */
+
+.p-dialog .p-dialog-header {
+    background: var(--color-white) !important;
+    color: var(--color-dark) !important;
+}
+
+.p-dialog .p-dialog-content {
+    background: var(--color-white) !important;
+    color: var(--color-dark) !important;
+}
+
+.p-dialog .p-dialog-footer {
+    background: var(--color-white) !important;
+    color: var(--color-dark) !important;
+}
+
+
+/* FIN CHANGE COLOR DIALOG */
+
+
+/* CHANGE COLOR BACKGROUND DROPDOWN */
+
+.p-dropdown .p-dropdown-label {
+    color: var(--color-dark) !important;
+}
+
+.p-dropdown .p-dropdown-label .p-placeholder {
+    color: var(--color-dark) !important;
+}
+
+.p-dropdown {
+    background: var(--color-white) !important;
+}
+
+.p-dropdown .p-dropdown-panel {
+    background: var(--color-white) !important;
+    color: var(--color-dark) !important;
+}
+
+.p-dropdown .p-dropdown-panel .p-dropdown-items .p-dropdown-item:not(.p-highlight):not(.p-disabled):hover {
+    color: var(--color-primary) !important;
+}
+
+.p-dropdown .p-dropdown-panel .p-dropdown-items .p-dropdown-item {
+    background: var(--color-white) !important;
+    color: var(--color-dark) !important;
+}
+
+
+/* FIN CHANGE COLOR DROPDOWN */
+
+
+/* CHANGE COLOR BACKGROUND TABLE */
+
+.p-datatable {
+    background: var(--color-white) !important;
+    color: var(--color-dark) !important;
+}
+
+.p-datatable .p-datatable-header {
+    background: var(--color-white) !important;
+    color: var(--color-dark) !important;
+}
+
+.p-datatable .p-datatable-thead>tr>th {
+    background: var(--color-white) !important;
+    color: var(--color-dark) !important;
+}
+
+.p-datatable .p-datatable-tbody>tr>td {
+    background: var(--color-white) !important;
+    color: var(--color-dark) !important;
+}
+
+.p-datatable .p-paginator-bottom {
+    background: var(--color-white) !important;
+    color: var(--color-dark) !important;
+}
+
+.p-datatable .p-paginator .p-paginator-current {
+    background: var(--color-white) !important;
+    color: var(--color-dark) !important;
+}
+
+.p-datatable .p-paginator .p-paginator-pages .p-paginator-page.p-highlight {
+    background: var(--color-white) !important;
+    border-color: var(--color-dark-variant) !important;
+    color: var(--color-dark) !important;
+}
+
+
+/* FIN CHANGE COLOR BACKGROUND TABLE */
+
+.lbl {
+    color: var(--color-dark);
+}
+
+.text-muted {
+    --bs-text-opacity: 1;
+    color: rgba(var(--color-dark-variant), .75)!important;
+}
+
+.user-picture-ranking {
+    border-radius: 50%;
+    /* margin-top: .4rem; */
+    height: 3.5rem;
+    width: 3.5rem;
+    background-color: #90a4ae;
+    color: #eaeaea;
+    font-size: 1.1em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
